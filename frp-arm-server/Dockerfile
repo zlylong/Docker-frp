@@ -1,4 +1,4 @@
-FROM ioft/armhf-ubuntu
+FROM arm32v7/ubuntu
 
 ARG FRP_VERSION=0.20.0
 
