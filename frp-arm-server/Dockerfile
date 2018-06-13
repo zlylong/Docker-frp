@@ -1,4 +1,4 @@
-FROM ubuntu 18.04 armhf
+FROM ubuntu arm64v8 ubuntu
 
 ARG FRP_VERSION=0.20.0
 
