@@ -1,5 +1,4 @@
 FROM ubuntu:18.04
-MAINTAINER keepwn <keepwn@gmail.com>
 
 ARG FRP_VERSION=0.20.0
 
