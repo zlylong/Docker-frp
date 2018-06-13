@@ -1,4 +1,4 @@
-FROM arm64v8/ubuntu:18.04
+FROM arm64v8/ubuntu
 
 ARG FRP_VERSION=0.20.0
 
