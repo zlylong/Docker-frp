@@ -1,9 +1,9 @@
-FROM arm64v8/ubuntu:latest
+FROM ioft/armhf-ubuntu
 
 ARG FRP_VERSION=0.20.0
 
-RUN apt-get update \
-    && apt-get install -y wget
+RUN apt update \
+    && apt install -y wget
 
 WORKDIR /tmp
 RUN set -x \
