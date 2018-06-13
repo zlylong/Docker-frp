@@ -2,9 +2,7 @@ FROM arm32v7/ubuntu:latest
 
 ARG FRP_VERSION=0.20.0
 
-RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
-    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-
+RUN apt-get update && apt-get install 
 ENV LANG en_US.utf8
 
 WORKDIR /tmp
