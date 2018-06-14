@@ -2,8 +2,8 @@ FROM arm64v8/ubuntu:latest
 
 ARG FRP_VERSION=0.20.0
 
-RUN apt update \
-    && apt install -y wget
+RUN /bin/bash -c apt update \
+        && apt install -y wget
 
 WORKDIR /tmp
 RUN set -x \
