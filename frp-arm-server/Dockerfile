@@ -1,7 +1,7 @@
 FROM arm64v8/ubuntu:18.04
 
 ARG FRP_VERSION=0.20.0
-
+CMD ["/bin/bash"]
 RUN /bin/bash -c apt update \
         && apt install -y wget
 
