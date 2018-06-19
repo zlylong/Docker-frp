@@ -1,4 +1,4 @@
-FROM arm64v8/ubuntu:18.04
+FROM zlim/arm64-ubuntu:16.04
 
 ARG FRP_VERSION=0.20.0
 CMD ["/bin/bash"]
