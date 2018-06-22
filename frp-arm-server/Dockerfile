@@ -1,15 +1,15 @@
-FROM arm32v7/ubuntu:latest
+FROM ubuntu:18.04
 
 ARG FRP_VERSION=0.20.0
-CMD ["/bin/bash"]
-RUN /bin/bash -c apt update \
-        && apt install -y wget
+
+RUN apt update \
+    && apt install -y wget
 
 WORKDIR /tmp
 RUN set -x \
-    && wget https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_linux_arm.tar.gz \
-    && tar -zxf frp_${FRP_VERSION}_linux_arm.tar.gz \
-    && mv frp_${FRP_VERSION}_linux_arm /var/frp \
+    && wget https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_linux_arm64.tar.gz \
+    && tar -zxf frp_${FRP_VERSION}_linux_arm64.tar.gz \
+    && mv frp_${FRP_VERSION}_linux_arm64 /var/frp \
     && mkdir -p /var/frp/conf \
     && apt remove -y wget \
     && apt autoremove -y \
