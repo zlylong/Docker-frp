@@ -1,23 +1,20 @@
-FROM ubuntu:18.04
+FROM golang:1.10
 
-ARG FRP_VERSION=0.20.0
+COPY . /go/src/github.com/fatedier/frp
 
-RUN apt update \
-    && apt install -y wget
+RUN cd /go/src/github.com/fatedier/frp \
+ && make \
+ && mv bin/frpc /frpc \
+ && make clean
 
-WORKDIR /tmp
-RUN set -x \
-    && wget https://github.com/fatedier/frp/releases/download/v${FRP_VERSION}/frp_${FRP_VERSION}_linux_arm64.tar.gz \
-    && tar -zxf frp_${FRP_VERSION}_linux_arm64.tar.gz \
-    && mv frp_${FRP_VERSION}_linux_arm64 /var/frp \
-    && mkdir -p /var/frp/conf \
-    && apt remove -y wget \
-    && apt autoremove -y \
-    && rm -rf /var/lib/apt/lists/*
+WORKDIR /
 
-COPY frpc_min.ini /var/frp/conf/frpc.ini
+EXPOSE 80 443 6000 7000 7500
 
-VOLUME /var/frp/conf
+COPY frpc_min.ini /bin/frp/conf/frpc.ini
 
-WORKDIR /var/frp
+VOLUME /bin/frp/conf
+
+WORKDIR /bin/frp
 ENTRYPOINT ./frpc -c ./conf/frpc.ini
+ENTRYPOINT ["/frpc"]
